@@ -5,29 +5,19 @@ Created on Jun 12, 2014
 '''
 import pygame
 from CTDSurface import *
+from Placeables import *
 ''' The base class for a Citadel tower '''
-class Citadel(object):
-
-    def place(self, xcoord, ycoord):
-        self.xcoord = xcoord
-        self.ycoord = ycoord
-        self.surface = CTDSurface(pygame.image.load("resources/Castle Icon.png"), xcoord, ycoord)
+class Citadel(Placeable):
         
     def display(self, screen):
-        if (self.surface == None and not (self.xcoord == None and self.ycoord == None)):
-            self.surface = CTDSurface(pygame.image.load("resources/Castle Icon.png"), self.xcoord, self.ycoord)
-        if (not self.surface == None):
-            self.surface.blit(screen)
+        super(Citadel, self).display(screen, "resources/Castle Icon.png", size=2)
 
-    def __init__(self, cost = 0, power = 5, xcoord = None, ycoord = None):
+    def __init__(self, cost = 0, power = 5, range = 5, xcoord = None, ycoord = None):
         '''
         Constructor
         '''
+        super(Citadel, self).__init__(xcoord, ycoord)
         self.cost = cost
         self.power = power
+        self.range = range
         self.level = 0
-        self.xcoord = xcoord
-        self.ycoord = ycoord
-        self.surface = None
-        if ((not xcoord == None) and (not ycoord == None)):
-            self.place(xcoord, ycoord)
