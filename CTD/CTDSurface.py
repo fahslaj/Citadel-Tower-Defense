@@ -12,7 +12,7 @@ class CTDSurface(object):
     @staticmethod
     def setFactor(factor = 32):
         global FACTOR
-        FACTOR = 32
+        FACTOR = factor
         
     @staticmethod
     def getFactor():

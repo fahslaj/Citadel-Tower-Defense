@@ -11,7 +11,7 @@ def run():
     pygame.display.set_icon(pygame.image.load("resources/Castle Icon.png"))
     pygame.display.set_caption("Citadel Tower Defense")
     CTDSurface.setFactor(32)
-    bg = Battleground()
+    bg = Battleground(1080, 800)
 
 if __name__ == '__main__':
     run()
